@@ -1,9 +1,10 @@
 name: Check Stock Bot
 
 on:
+  push:                   # ★保存した瞬間に自動で1回動く！
   schedule:
-    - cron: '*/10 * * * *'  # 10分おきに自動実行
-  workflow_dispatch:        # 手動で今すぐ動かすボタン
+    - cron: '*/10 * * * *'  # その後は10分おきに自動実行
+  workflow_dispatch:
 
 jobs:
   check:
