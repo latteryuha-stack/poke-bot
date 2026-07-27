@@ -1,0 +1,24 @@
+name: Check Stock Bot
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # 10分おきに自動実行
+  workflow_dispatch:        # 手動で今すぐ動かすボタン
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Tools
+        run: pip install cloudscraper
+
+      - name: Run Bot
+        run: python main.py
